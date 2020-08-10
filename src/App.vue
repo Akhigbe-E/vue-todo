@@ -28,7 +28,12 @@
     },
     methods: {
       deleteTodo(todoId) {
-        this.todos = this.todos.filter(({ id }) => id !== todoId);
+        axios
+          .delete(`https://jsonplaceholder.typicode.com/todos/${todoId}`)
+          .then(
+            () => (this.todos = this.todos.filter(({ id }) => id !== todoId))
+          )
+          .catch((err) => alert(err.toString()));
       },
       addTodo({ title, completed }) {
         axios
@@ -36,15 +41,15 @@
             title,
             completed,
           })
-          .then((res) => (this.todos = [...this.todos, newTodo]))
-          .catch((err) => console.log(err));
+          .then(({ data }) => (this.todos = [...this.todos, data]))
+          .catch((err) => alert(err.toString()));
       },
     },
     created() {
       axios
         .get(`https://jsonplaceholder.typicode.com/todos?_limit=5`)
         .then(({ data }) => (this.todos = data))
-        .catch((err) => console.log(err));
+        .catch((err) => alert(err.toString()));
     },
   };
 </script>
