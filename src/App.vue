@@ -1,11 +1,25 @@
 <template>
-  <div id="app">{{msg}}</div>
+  <div id="app">
+    <Header />
+    <AddTodo />
+    <div>
+      <Todos v-bind:todos="todos" @del-todo="deleteTodo" />
+    </div>
+  </div>
 </template>
 
 <script>
+import Todos from "./components/Todos";
+import AddTodo from "./components/AddTodo";
+import Header from "./components/layout/Header";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    Todos,
+    Header,
+    AddTodo,
+  },
   data() {
     return {
       todos: [
@@ -17,7 +31,7 @@ export default {
         {
           id: 2,
           title: "Todo Two",
-          completed: false,
+          completed: true,
         },
         {
           id: 3,
@@ -26,6 +40,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    deleteTodo(todoId) {
+      this.todos = this.todos.filter(({ id }) => id !== todoId);
+    },
   },
 };
 </script>
@@ -39,5 +58,16 @@ export default {
 body {
   font-family: Raleway, Arial, Helvetica, sans-serif;
   line-height: 1.4;
+}
+.btn {
+  display: inline-block;
+  border: none;
+  background: #555;
+  color: #fff;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #666;
 }
 </style>
