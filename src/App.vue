@@ -1,13 +1,32 @@
 <template>
-  <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <div id="app">{{msg}}</div>
 </template>
 
 <script>
 export default {
   name: "App",
   components: {},
+  data() {
+    return {
+      todos: [
+        {
+          id: 1,
+          title: "Todo One",
+          completed: false,
+        },
+        {
+          id: 2,
+          title: "Todo Two",
+          completed: false,
+        },
+        {
+          id: 3,
+          title: "Todo Three",
+          completed: false,
+        },
+      ],
+    };
+  },
 };
 </script>
 
