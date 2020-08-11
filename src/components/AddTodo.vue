@@ -1,7 +1,6 @@
 <template>
   <div>
     <form @submit="addTodo">
-      <label for="todoTitle">Title</label>
       <input
         type="text"
         v-model="title"
