@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="todo-header">
-      <h1>Basic Todos</h1>
+      <h1>BasicTodos</h1>
       <div>
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link>
@@ -27,7 +27,7 @@
   }
   .todo-header a {
     color: #fff;
-    padding-right: 5px;
+    padding: 0 5px;
     text-decoration: none;
   }
 </style>
