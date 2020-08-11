@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header />
     <AddTodo @add-todo="addTodo" />
     <div>
+      <!-- <div v-if="isLoading"> -->
       <Todos v-bind:todos="todos" @del-todo="deleteTodo" />
     </div>
   </div>
@@ -11,19 +11,18 @@
 <script>
   import Todos from "@/components/Todos";
   import AddTodo from "@/components/AddTodo";
-  import Header from "@/components/layout/Header";
   import axios from "axios";
 
   export default {
     name: "Home",
     components: {
       Todos,
-      Header,
       AddTodo,
     },
     data() {
       return {
         todos: [],
+        isLoading: true,
       };
     },
     methods: {
