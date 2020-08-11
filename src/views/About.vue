@@ -6,6 +6,11 @@
       Vue. It uses Vue (😅 obviously), vue-router, axios and gets todos from
       jsonplaceholder. Felt cute, might live in Netlify later 💁🏾‍♀️.
     </p>
+    <hr />
+    <p>
+      If you're a recruiter, fear not, your site won't look like this if I'm
+      there 🙂.
+    </p>
   </div>
 </template>
 
@@ -26,5 +31,8 @@
     max-width: 1000px;
     margin: 0px auto;
     line-height: 30px;
+  }
+  .about hr {
+    margin: 20px 0px;
   }
 </style>
